@@ -80,7 +80,13 @@ if (isset($_POST['bilatu'])) {
     </tr>
 <?php
 //datu baseari selecta eskatzen diogu
-$sql_select = "SELECT id, izena, mota, prezioa FROM produktuak";
+$sql_select = "SELECT id, izena, mota, prezioa FROM produktuak WHERE 1=1";
+
+//mota zerrenda klikatzean, mota bat aukeratzean eta bilatzean, mota hori filtratu egingo du datu basean, eta gure pantailan 
+//inprimituko da aukeratutako mota horren produktu guztiak
+if (!empty($mota_filtratu)) {
+    $sql_select .= " AND mota = '$mota_filtratu'";
+}
 
 //emaitzak hemen begiratzen ditu
 $result = $conn->query($sql_select);

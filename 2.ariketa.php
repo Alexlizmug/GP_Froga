@@ -50,7 +50,7 @@ if (isset($_POST['bilatu'])) {
         <!--option value erabiltzen du, produktu motak lista moduan ateratzeko-->
         <select name="mota_filtratu" id="mota_filtratu">
             <option value="">-- Aukeratu mota --</option>
-            <option value="Frutak" <?php if ($mota_filtratu == 'Frutak') echo 'selected'; ?>>Frutak</option>
+            <option value="Fruituak" <?php if ($mota_filtratu == 'Fruituak') echo 'selected'; ?>>Fruituak</option>
             <option value="Esnekiak" <?php if ($mota_filtratu == 'Esnekiak') echo 'selected'; ?>>Esnekiak</option>
             <option value="Haragia" <?php if ($mota_filtratu == 'Haragia') echo 'selected'; ?>>Haragia</option>
             <option value="Beste" <?php if ($mota_filtratu == 'Beste') echo 'selected'; ?>>Besteak</option>
