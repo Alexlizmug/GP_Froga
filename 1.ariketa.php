@@ -11,7 +11,7 @@
     <script>
         //JavaScript-eko funtzio bati egiten dio deia, gero INSERT-a egin ahal izateko, eta formularioa erakusteko
         function showAddForm() {
-            //
+            //id-a addForm moduan jarri du
             document.getElementById('addForm').style.display = 'block';
         }
     </script>
