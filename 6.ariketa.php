@@ -98,7 +98,7 @@ if ($result->num_rows > 0) {
                 </form>".
                 //arkatz ikonoa
                 //arkatz ikonoan beste php fitxategi bat ezarri dut, updatea egiteko
-                " <a href='edit.php?id=" . $row['id'] . "'><i class='fas fa-pencil-alt'></i></a>
+                " <a href='edit.php?'><i class='fas fa-pencil-alt'></i></a>
               </td>";
         echo "</tr>";
     }

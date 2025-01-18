@@ -30,10 +30,11 @@ if (isset($_GET["prezioa"])) {
 }
 ?>
  
-<form action="6.ariketa.php" method="get">
+<form action="edit.php" method="get">
     <br>
     <label for="izena"> <strong>Erregistroa sartu: </strong></label>
     <br>
+    <input type="text" name="id" id="id" value="" placeholder="sartu id-a" />
     <input type="text" name="izena" id="izena" value="" placeholder="sartu izena" />
     <input type="text" name="mota" id="mota" value="" placeholder="sartu mota" />
     <input type="number" name="prezioa" id="prezioa" value="" placeholder="..€">
