@@ -1,16 +1,18 @@
 <?php
+//datu basearen ezaugarriak
 $servername = "localhost:3306";
 $username = "root";
 $password = "1MG2024";
 $dbname = "produktuakdb";
 
-// Create connection
+//datu basearen konexioa
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+//arrayak definitu
 $row = "";
 $id="";
 $izena = "";
@@ -29,7 +31,7 @@ if (isset($_GET["prezioa"])) {
     $prezioa = ($_GET["prezioa"]);
 }
 ?>
- 
+ <!--inserta egiteko formularioa-->
 <form action="edit.php" method="get">
     <br>
     <label for="izena"> <strong>Erregistroa sartu: </strong></label>
@@ -44,8 +46,9 @@ if (isset($_GET["prezioa"])) {
 
  
  <?php
+ //Updatea egiteko kodigoa, datu baseari eskatzen diogu updatea egiteko
  $sql = "UPDATE produktuak SET izena='$izena', mota='$mota', prezioa='$prezioa' WHERE id='$id'";
- 
+ //ondo baldin badago updatea egingo da, bestela errorea emango du.
  if ($conn->query($sql) === TRUE) {
      echo "Record updated successfully";
  } else {
