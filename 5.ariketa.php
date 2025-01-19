@@ -21,12 +21,12 @@
 <body>
 
     <?php
-    //datu-baseko konexioa
+//datu basearen ezaugarriak
     $servername = "localhost";
     $username = "root";
     $password = "1MG2024";
     $dbname = "produktuakdb";
-
+//datu baseko konexioa
     $conn = new mysqli($servername, $username, $password, $dbname);
     //ez bada konektatzen errorea emango du, bestela ez da ezer azalduko
     if ($conn->connect_error) {
@@ -100,14 +100,17 @@
     <!--Inserta egiteko formularioa-->
     <form method="POST" id="addForm" style="display:none;">
     <label for="izena">Izena:</label><br>
+    <!--$row["izena"] arrayak hemen idatzitakoa hartuko du eta inserta egiterakoan hemen idatzitako edozer gauza inprimituko du taula bukaeran-->
     <input type="text" name="izena" id="izena" placeholder="Sartu izena"><br><br>
 
     <label for="mota">Mota:</label><br>
+        <!--$row["mota"] arrayak hemen idatzitakoa hartuko du eta inserta egiterakoan hemen idatzitako edozer gauza inprimituko du taula bukaeran-->
     <input type="text" name="mota" id="mota" placeholder="Sartu mota"><br><br>
 
     <label for="prezioa">Prezioa:</label><br>
+        <!--$row["prezioa"] arrayak hemen idatzitakoa prezioa hartuko du eta inserta egiterakoan hemen idatzitako prezioa inprimituko du taula bukaeran-->
     <input type="text" name="prezioa" id="prezioa" placeholder="Sartu prezioa"><br><br>
-
+<!--botoi honi ematerakoan, inserta egingo da-->
     <button type="submit" name="osatu">Osatu</button>
     
 

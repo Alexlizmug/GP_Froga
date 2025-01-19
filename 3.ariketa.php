@@ -19,12 +19,12 @@
 <body>
 
 <?php
-//datu-baseko konexioa
+//datu basearen ezaugarriak
 $servername = "localhost";
 $username = "root";
 $password = "1MG2024";
 $dbname = "produktuakdb";
-
+//datu baseko konexioa
 $conn = new mysqli($servername, $username, $password, $dbname);
 //ez bada konektatzen errorea emango du, bestela ez da ezer azalduko
 if ($conn->connect_error) {
