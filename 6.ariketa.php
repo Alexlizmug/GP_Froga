@@ -82,7 +82,7 @@ if (isset($_POST['bilatu'])) {
 //datu baseari selecta eskatzen diogu
 $sql_select = "SELECT id, izena, mota, prezioa FROM produktuak";
 
-//emaitzak hemen begiratzen ditu
+//datu baseari eskaera
 $result = $conn->query($sql_select);
 //emaitzean lerroak 0 baino handigoak badira taula inprimituko digu, bestela ez digu ezer ez inprimituko
 if ($result->num_rows > 0) {

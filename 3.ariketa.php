@@ -88,7 +88,7 @@ if (!empty($mota_filtratu)) {
     $sql_select .= " AND mota = '$mota_filtratu'";
 }
 
-//emaitzak hemen begiratzen ditu
+//datu baseari eskaera
 $result = $conn->query($sql_select);
 //emaitzean lerroak 0 baino handigoak badira taula inprimituko digu, bestela ez digu ezer ez inprimituko
 if ($result->num_rows > 0) {
