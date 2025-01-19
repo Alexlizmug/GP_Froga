@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="mota_filtratu">Mota:</label>
         <select name="mota_filtratu" id="mota_filtratu">
             <option value="">-- Aukeratu mota --</option>
-            <option value="Fruituak" <?php if ($mota_filtratu == 'Fruituak') echo 'selected'; ?>>Fruituak</option>
+            <option value="Frutak" <?php if ($mota_filtratu == 'Frutak') echo 'selected'; ?>>Frutak</option>
             <option value="Esnekiak" <?php if ($mota_filtratu == 'Esnekiak') echo 'selected'; ?>>Esnekiak</option>
             <option value="Haragia" <?php if ($mota_filtratu == 'Haragia') echo 'selected'; ?>>Haragia</option>
             <option value="Beste" <?php if ($mota_filtratu == 'Beste') echo 'selected'; ?>>Besteak</option>
@@ -147,3 +147,4 @@ $conn->close();
 
 
  
+
