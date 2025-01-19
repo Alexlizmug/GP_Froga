@@ -37,6 +37,7 @@ if (isset($_POST['bilatu'])) {
     //SQL kontsulta egin baino lehen karaktere espezialak saltatzeko balio du
     $bilaketa = $conn->real_escape_string($_POST['bilaketa']);
     $mota_filtratu = $conn->real_escape_string($_POST['mota_filtratu']);
+
 }
 
 ?>
@@ -80,14 +81,7 @@ if (isset($_POST['bilatu'])) {
     </tr>
 <?php
 //datu baseari selecta eskatzen diogu, eta selecta array baten barruan gordetzen du
-$sql_select = "SELECT id, izena, mota, prezioa FROM produktuak WHERE 1=1";
-
-//mota zerrenda klikatzean, mota bat aukeratzean eta bilatzean, mota hori filtratu egingo du datu basean, eta gure pantailan 
-//inprimituko da aukeratutako mota horren produktu guztiak
-if (!empty($mota_filtratu)) {
-        //array-ean selecta gordeta dagoenez, bakarrik hurrengo sententzia jarri behar da.
-    $sql_select .= " AND mota = '$mota_filtratu'";
-}
+$sql_select = "SELECT id, izena, mota, prezioa FROM produktuak";
 
 //datu baseari eskaera
 $result = $conn->query($sql_select);
@@ -100,16 +94,28 @@ if ($result->num_rows > 0) {
         echo "<td>" . htmlspecialchars($row["mota"]) . "</td>";
         echo "<td>" . htmlspecialchars($row["prezioa"]) . " &euro;</td>";
         echo "<td>".
-        //basura ikonoa
-                   " <i class='fas fa-trash'></i>
-                </form>".
+        //basura ikonoari klik egitean, produktua eliminatzeko, hau da, id-a hartuko du automatikoki
+                   " <a href='7.ariketa.php?id=" . $row["id"] . "'>
+                <i class='fa fa-trash' aria-hidden='true'></i>
+                </a>".
                 //arkatz ikonoa
-
-                " <i class='fas fa-pencil-alt'></i></a>
+                "<i class='fas fa-pencil-alt'></i>
               </td>";
         echo "</tr>";
     }
 }
+//datu-baseari deletea egiteko eskaera
+$sql1 = "DELETE FROM produktuak WHERE id =?";
+$stmt = $conn->prepare($sql1);
+$stmt->bind_param("i", $id);
+//ondo badijoa iruzkin hau aterako da bestela errorea emango du
+if ($stmt->execute()) {
+    echo "Producto eliminado correctamente.";
+} else {
+    echo "Error al eliminar el producto: " . $conn->error;
+
+}
+$stmt->close();
 ?>
 </table>
 

@@ -79,16 +79,20 @@ if (isset($_POST['bilatu'])) {
         <th>Ekintzak</th>
     </tr>
 <?php
-//datu baseari selecta eskatzen diogu
+//datu baseari selecta eskatzen diogu, eta selecta array baten barruan gordetzen du
 $sql_select = "SELECT id, izena, mota, prezioa FROM produktuak WHERE 1=1";
 
 //bilaketa egiterakoan, idatzitakoa filtratzeko
 if (!empty($bilaketa)) {
+        //array-ean selecta gordeta dagoenez, bakarrik hurrengo sententzia jarri behar da.
+
     $sql_select .= " AND izena LIKE '%$bilaketa%'";
 }
 //mota zerrenda klikatzean, mota bat aukeratzean eta bilatzean, mota hori filtratu egingo du datu basean, eta gure pantailan 
 //inprimituko da aukeratutako mota horren produktu guztiak
 if (!empty($mota_filtratu)) {
+        //array-ean selecta gordeta dagoenez, bakarrik hurrengo sententzia jarri behar da.
+
     $sql_select .= " AND mota = '$mota_filtratu'";
 }
 //orain mota eta bilaketa batera filtratu ahalko dira

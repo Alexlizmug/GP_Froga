@@ -79,7 +79,7 @@ if (isset($_POST['bilatu'])) {
         <th>Ekintzak</th>
     </tr>
 <?php
-//datu baseari selecta eskatzen diogu
+//datu baseari selecta eskatzen diogu, eta selecta array baten barruan gordetzen du
 $sql_select = "SELECT id, izena, mota, prezioa FROM produktuak";
 
 //datu baseari eskaera

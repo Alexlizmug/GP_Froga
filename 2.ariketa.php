@@ -79,10 +79,11 @@ if (isset($_POST['bilatu'])) {
         <th>Ekintzak</th>
     </tr>
 <?php
-//datu baseari selecta eskatzen diogu
+//datu baseari selecta eskatzen diogu, eta selecta array baten barruan gordetzen du
 $sql_select = "SELECT id, izena, mota, prezioa FROM produktuak WHERE 1=1";
 //bilaketa egiterakoan, idatzitakoa filtratzeko
 if (!empty($bilaketa)) {
+    //array-ean selecta gordeta dagoenez, bakarrik hurrengo sententzia jarri behar da.
     $sql_select .= " AND izena LIKE '%$bilaketa%'";
 }
 
