@@ -45,11 +45,13 @@ if (isset($_POST['bilatu'])) {
     <form method="POST">
         <label for="bilaketa">Bilatu:</label>
         <!--htmlspecialchars PHPko funtzio bat da, zenbait karaktere berezi HTML entitateetan haien irudikapenak bihurtzen dituena-->
+        <!--hemen bilatzen dena, bilaketa array-ean gordeko da, bilaketa egin ahal izateko-->
         <input type="text" name="bilaketa" id="bilaketa" placeholder="Bilatu izenaren arabera" value="<?php echo htmlspecialchars($bilaketa); ?>">
         <label for="mota_filtratu">Mota:</label>
         <!--option value erabiltzen du, produktu motak lista moduan ateratzeko-->
         <select name="mota_filtratu" id="mota_filtratu">
             <option value="">-- Aukeratu mota --</option>
+            <!--mota_filtratu arraya sortzen da, gero mota filtratu ahal izateko-->
             <option value="Fruituak" <?php if ($mota_filtratu == 'Fruituak') echo 'selected'; ?>>Fruituak</option>
             <option value="Esnekiak" <?php if ($mota_filtratu == 'Esnekiak') echo 'selected'; ?>>Esnekiak</option>
             <option value="Haragia" <?php if ($mota_filtratu == 'Haragia') echo 'selected'; ?>>Haragia</option>
@@ -86,6 +88,7 @@ $sql_select = "SELECT id, izena, mota, prezioa FROM produktuak WHERE 1=1";
 //inprimituko da aukeratutako mota horren produktu guztiak
 if (!empty($mota_filtratu)) {
         //array-ean selecta gordeta dagoenez, bakarrik hurrengo sententzia jarri behar da.
+        //mota_filtratu array-ak gu idatziakoa jasoko du, eta horren bitartez filtratuko du.
     $sql_select .= " AND mota = '$mota_filtratu'";
 }
 
